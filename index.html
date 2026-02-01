@@ -73,6 +73,16 @@
         .term .tooltip{display:none;position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:#1a1a2e;border:1px solid #d4af37;padding:0.8rem;border-radius:6px;font-size:0.85rem;color:#f5f5dc;width:280px;z-index:1000;box-shadow:0 4px 15px rgba(0,0,0,0.5)}
         .term:hover .tooltip{display:block}
         
+        /* EN SAVOIR PLUS */
+        .learn-more-container{margin:1.5rem 0;text-align:center}
+        .learn-more-btn{background:none;border:1px dashed #5dade2;color:#5dade2;padding:0.5rem 1rem;font-size:0.9rem;cursor:pointer;border-radius:6px;font-family:Georgia,serif;transition:all 0.3s}
+        .learn-more-btn:hover{background:rgba(93,173,226,0.1);border-style:solid}
+        .learn-more-content{display:none;background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid #5dade2;border-radius:8px;padding:1.2rem;margin-top:1rem;text-align:left;font-size:0.95rem;line-height:1.7;color:#c0c0c0}
+        .learn-more-content.visible{display:block;animation:fadeIn 0.3s ease}
+        .learn-more-content h4{color:#5dade2;margin-bottom:0.8rem;font-size:1rem}
+        .learn-more-content p{margin-bottom:0.8rem}
+        .learn-more-content .hint{font-style:italic;color:#a0a0a0;font-size:0.85rem;border-top:1px solid #4a2c1a;padding-top:0.8rem;margin-top:0.8rem}
+        
         /* CHOIX */
         .choices-container{margin-top:2rem;border-top:1px solid #4a2c1a;padding-top:1.5rem}
         .choices-title{color:#c9a959;font-size:0.9rem;margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px}

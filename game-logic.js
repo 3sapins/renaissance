@@ -137,8 +137,21 @@ function showScene(sceneId) {
         <div class="scene-location">${scene.location}</div>
         <h2 class="scene-title">${scene.title}</h2>
         <div class="scene-illustration">${scene.icon}</div>
-        ${scene.text}
-        <div class="choices-container">
+        ${scene.text}`;
+    
+    // Ajouter "En savoir plus" si disponible
+    if (scene.learnMore) {
+        html += `<div class="learn-more-container">
+            <button class="learn-more-btn" onclick="toggleLearnMore()">📚 En savoir plus sur le contexte</button>
+            <div class="learn-more-content" id="learnMoreContent">
+                <h4>${scene.learnMore.title}</h4>
+                ${scene.learnMore.content}
+                ${scene.learnMore.hint ? `<p class="hint">💭 ${scene.learnMore.hint}</p>` : ''}
+            </div>
+        </div>`;
+    }
+    
+    html += `<div class="choices-container">
             <div class="choices-title">Que faites-vous ?</div>`;
 
     scene.choices.forEach((choice, i) => {
@@ -331,6 +344,18 @@ function showLexicon() {
 
 function hideLexicon() {
     document.getElementById('lexiconPanel').style.display = 'none';
+}
+
+function toggleLearnMore() {
+    const content = document.getElementById('learnMoreContent');
+    const btn = document.querySelector('.learn-more-btn');
+    if (content.classList.contains('visible')) {
+        content.classList.remove('visible');
+        btn.textContent = '📚 En savoir plus sur le contexte';
+    } else {
+        content.classList.add('visible');
+        btn.textContent = '📕 Masquer le contexte';
+    }
 }
 
 // ==================== RESTART ====================

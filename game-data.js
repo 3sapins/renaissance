@@ -27,6 +27,11 @@ const SCENES = {
     intro: {
         location:'Porta San Gallo',title:'L\'Arrivée à Florence',icon:'🏛️',
         text:'<p class="scene-text">Le soleil de septembre baigne les murailles ocre de Florence. Vous franchissez la <span class="term">Porta San Gallo<span class="tooltip">L\'une des principales portes de la cité.</span></span>, le cœur battant.</p><p class="scene-text">La cité des <span class="term">Médicis<span class="tooltip">Famille de banquiers qui domine Florence.</span></span> s\'étend devant vous, dominée par le dôme de <span class="term">Brunelleschi<span class="tooltip">Architecte du dôme révolutionnaire.</span></span>.</p><p class="scene-text">Les rues grouillent de marchands, artisans, moines. Vous devez d\'abord vous orienter.</p>',
+        learnMore: {
+            title:'Florence en septembre 1494',
+            content:'<p>Vous arrivez à un moment charnière. Florence est la ville la plus riche et la plus cultivée d\'Europe. Mais elle est aussi au bord du chaos.</p><p>Laurent le Magnifique est mort il y a deux ans. Son fils Piero gouverne sans génie. Le moine Savonarole prêche contre la corruption. Et le roi de France Charles VIII s\'apprête à envahir l\'Italie.</p><p>Trois forces s\'affrontent : les <strong>Médicis</strong> (pouvoir, argent, art), le <strong>clergé réformateur</strong> (Savonarole, pureté, foi), et les <strong>humanistes</strong> (savoir, beauté, liberté).</p>',
+            hint:'Votre premier choix détermine votre point d\'entrée dans la société florentine. Le Duomo vous place au centre, les artisans offrent un départ modeste, les Médicis un pari ambitieux.'
+        },
         choices:[
             {text:'Chercher une auberge près du Duomo',target:'first_night',effects:{humanism:5}},
             {text:'Trouver un logement chez les artisans',target:'first_night',effects:{humanism:5,prudence:5}},
@@ -55,6 +60,11 @@ const SCENES = {
     savonarole_preach: {
         location:'Piazza del Duomo',title:'Le Prêche du Prophète',icon:'🔥',cards:['savonarole'],
         text:'<p class="scene-text">Un moine au visage émacié harangue la foule. « Repentez-vous ! Florence est devenue Babylone ! »</p><p class="scene-text">Un homme riche murmure : « Ce fou va nous perdre... »</p>',
+        learnMore: {
+            title:'Savonarole et la crise florentine',
+            content:'<p>En 1494, Florence traverse une crise profonde. Laurent le Magnifique est mort en 1492, laissant son fils Piero, moins charismatique. Le moine Girolamo Savonarole prêche depuis 1490 contre la corruption de l\'Église et des élites.</p><p>Ses partisans, les <em>Piagnoni</em> (« pleurnicheurs »), sont nombreux parmi le peuple. Ses ennemis, les <em>Arrabbiati</em> (« enragés »), comptent des marchands et des humanistes.</p><p>Le roi de France Charles VIII menace d\'envahir l\'Italie — Savonarole y voit un châtiment divin annoncé.</p>',
+            hint:'Chaque camp offre protection et dangers. Les Piagnoni sont puissants mais exigeants. Les riches opposants ont des ressources mais sont surveillés.'
+        },
         choices:[
             {text:'Écouter la suite',target:'savonarole_continue',effects:{clergy:15,humanism:-5}},
             {text:'Aborder l\'homme riche',target:'rich_critic',effects:{princes:10,clergy:-5}},
@@ -81,6 +91,11 @@ const SCENES = {
     san_marco_visit: {
         location:'San Marco',title:'Le Couvent',icon:'🏛️',cards:['neoplatonisme'],
         text:'<p class="scene-text">Des fresques sublimes de <span class="term">Fra Angelico<span class="tooltip">Peintre aux fresques mystiques.</span></span>. Savonarole : « Que cherches-tu à Florence ? »</p>',
+        learnMore: {
+            title:'San Marco : entre art et austérité',
+            content:'<p>Le couvent de San Marco est un lieu paradoxal. Ses murs abritent les fresques sublimes de Fra Angelico (1395-1455), chef-d\'œuvre de spiritualité peinte. Mais depuis 1491, c\'est aussi le quartier général de Savonarole.</p><p>Pour le moine, l\'art de Fra Angelico est acceptable car il sert la foi. Mais l\'art « païen » — mythologies, nus, portraits de riches — corrompt les âmes.</p><p>Savonarole teste ses visiteurs. Sa question « Que cherches-tu ? » n\'est pas anodine — il jauge votre sincérité.</p>',
+            hint:'La vérité peut signifier différentes choses. Une réponse spirituelle plaira au moine. Une réponse intellectuelle peut l\'irriter... ou lui montrer que vous êtes récupérable.'
+        },
         choices:[
             {text:'« La vérité »',target:'savonarole_truth',effects:{clergy:15,humanism:5}},
             {text:'« Comprendre le monde »',target:'savonarole_challenge',effects:{humanism:15,clergy:-5}},
@@ -116,6 +131,11 @@ const SCENES = {
     piagnoni_mission: {
         location:'San Marco',title:'Au Service du Prophète',icon:'✝️',
         text:'<p class="scene-text">Savonarole vous convoque. « Un marchand cache des peintures impies. Tu iras demain. »</p>',
+        learnMore: {
+            title:'Le Bûcher des Vanités',
+            content:'<p>En 1497, Savonarole organisera le célèbre « Bûcher des Vanités » : sur la Piazza della Signoria, des milliers d\'objets seront brûlés — miroirs, cosmétiques, cartes à jouer, mais aussi tableaux, livres, instruments de musique.</p><p>Botticelli lui-même aurait jeté certaines de ses œuvres au feu. Des trésors irremplaçables ont disparu.</p><p>Pour Savonarole, c\'est une purification. Pour ses ennemis, c\'est de la barbarie. L\'histoire retiendra les deux.</p>',
+            hint:'Servir Savonarole avec zèle vous protège mais vous rend complice. Le prévenir est dangereux mais préserve des œuvres. Refuser, c\'est rompre avec le mouvement.'
+        },
         choices:[
             {text:'Accepter avec zèle',target:'vanity_hunt',effects:{clergy:20,humanism:-20}},
             {text:'Prévenir le marchand',target:'double_agent',effects:{prudence:-10,humanism:10}},
@@ -125,6 +145,11 @@ const SCENES = {
     bottega_district: {
         location:'Via dei Servi',title:'La Rue des Artistes',icon:'🎨',cards:['bottega'],
         text:'<p class="scene-text">Plusieurs <span class="term">botteghe<span class="tooltip">Ateliers d\'artistes.</span></span> retiennent votre attention. Un vieil homme : « À Florence, il faut choisir son camp. »</p>',
+        learnMore: {
+            title:'Les ateliers de la Renaissance',
+            content:'<p>La <em>bottega</em> est le cœur de la création artistique. Le maître y forme ses apprentis pendant des années : broyage des pigments, préparation des panneaux, copie des maîtres anciens, puis enfin création personnelle.</p><p>Certains ateliers sont liés aux Médicis (commandes prestigieuses, protection). D\'autres restent indépendants mais plus précaires. Quelques-uns, comme celui de Léonard, explorent des territoires interdits.</p>',
+            hint:'Un atelier prestigieux offre sécurité et formation classique. Un atelier mystérieux peut mener à des découvertes extraordinaires — ou à des ennuis.'
+        },
         choices:[
             {text:'L\'atelier prestigieux',target:'ghirlandaio_workshop',effects:{princes:10,humanism:5}},
             {text:'L\'atelier mystérieux',target:'leonardo_workshop',effects:{humanism:15,prudence:-5}},
@@ -152,6 +177,11 @@ const SCENES = {
     leonardo_philosophy: {
         location:'Atelier de Léonard',title:'Les Leçons',icon:'📐',cards:['humanisme'],
         text:'<p class="scene-text">« La nature est le maître des maîtres. Dessine tout. » Il hésite. « Ce que je fais... l\'Église n\'approuve pas. Tu veux ce chemin ? »</p>',
+        learnMore: {
+            title:'Léonard et les savoirs interdits',
+            content:'<p>Léonard de Vinci (1452-1519) incarne la curiosité universelle de la Renaissance. Peintre, sculpteur, ingénieur, anatomiste — il refuse les frontières entre les disciplines.</p><p>Mais certaines de ses recherches sont dangereuses. La dissection de cadavres est interdite par l\'Église. Ses études sur le vol des oiseaux ou les machines de guerre intéressent les princes mais effraient les religieux.</p><p>Léonard écrit ses notes en miroir — peut-être pour les protéger des regards indiscrets.</p>',
+            hint:'Suivre Léonard ouvre des horizons immenses mais expose à des risques réels. L\'Inquisition veille. La prudence a aussi sa valeur.'
+        },
         choices:[
             {text:'Oui, quels que soient les risques',target:'leonardo_path',effects:{humanism:25,clergy:-15,prudence:-10}},
             {text:'Rester prudent',target:'leonardo_cautious',effects:{humanism:15,prudence:10}},
@@ -186,6 +216,11 @@ const SCENES = {
     medici_approach: {
         location:'Palazzo Medici',title:'À l\'Ombre du Palais',icon:'🏛️',cards:['medicis'],
         text:'<p class="scene-text">Le <span class="term">Palazzo Medici<span class="tooltip">Résidence des Médicis.</span></span>. Un homme élégant : « Tu as du talent ou des informations ? »</p>',
+        learnMore: {
+            title:'Les Médicis en 1494',
+            content:'<p>Les Médicis dominent Florence depuis 1434. Banquiers richissimes, ils ont fait de la cité la capitale des arts. Laurent le Magnifique (mort en 1492) protégeait Botticelli, Léonard, le jeune Michel-Ange.</p><p>Mais son fils Piero manque de charisme. Face à l\'invasion française de Charles VIII, il cédera tout sans combattre, provoquant sa chute en novembre 1494.</p><p>Servir les Médicis offre protection et ressources, mais leur étoile pâlit. Leurs ennemis — dont Savonarole — gagnent en puissance.</p>',
+            hint:'Les Médicis ont des ressources immenses mais sont en déclin. Prétendre avoir des informations peut ouvrir des portes... ou vous transformer en pion d\'un jeu dangereux.'
+        },
         choices:[
             {text:'Prétendre avoir des informations',target:'medici_spy',effects:{princes:15,prudence:-10}},
             {text:'Dire être artiste',target:'medici_garden',effects:{princes:10,humanism:5}},
@@ -195,6 +230,11 @@ const SCENES = {
     medici_garden: {
         location:'Jardin de San Marco',title:'Le Jardin des Antiques',icon:'🗿',cards:['humanisme'],
         text:'<p class="scene-text">Statues antiques. <span class="term">Bertoldo<span class="tooltip">Gardien du jardin.</span></span> : « Le Magnifique aimait venir ici. Savonarole veut brûler tout cela. »</p>',
+        learnMore: {
+            title:'Le Jardin des Médicis',
+            content:'<p>Laurent le Magnifique a créé ce jardin comme une « école » informelle. Des statues antiques — torses, têtes, fragments de reliefs — permettent aux jeunes artistes d\'étudier l\'art grec et romain.</p><p>C\'est ici que Michel-Ange, à 15 ans, a été remarqué par Laurent. Le vieux sculpteur Bertoldo, ancien élève de Donatello, transmet le savoir des maîtres.</p><p>Mais Savonarole considère ces statues païennes comme des idoles. Si son mouvement triomphe, ce jardin sera menacé.</p>',
+            hint:'Le jardin est un lieu de formation et de débat. Dessiner développe les compétences artistiques. Écouter les débats ouvre l\'esprit aux idées humanistes.'
+        },
         choices:[
             {text:'Dessiner avec Michel-Ange',target:'drawing_session',effects:{humanism:15}},
             {text:'Écouter les débats',target:'garden_debate',effects:{humanism:15,princes:5}},
@@ -254,6 +294,11 @@ const SCENES = {
     anatomy_secret: {
         location:'Hôpital Santo Spirito',title:'Les Secrets du Corps',icon:'💀',cards:['anatomie','alchimie'],
         text:'<p class="scene-text">La nuit, vous disséquez un cadavre. Révélations stupéfiantes. Soudain — des bruits de pas !</p>',
+        learnMore: {
+            title:'L\'anatomie interdite',
+            content:'<p>La dissection de cadavres humains est officiellement interdite par l\'Église, qui considère le corps comme sacré. Pourtant, médecins et artistes la pratiquent en secret pour comprendre la mécanique du corps.</p><p>Léonard dissèque à l\'hôpital Santa Maria Nuova. Michel-Ange étudie des corps au couvent de Santo Spirito en échange d\'un crucifix sculpté. Leurs découvertes révolutionnent l\'art et la médecine.</p><p>Mais se faire prendre signifie l\'accusation de profanation — un crime grave devant l\'Inquisition.</p>',
+            hint:'Face au danger, la fuite est souvent la meilleure option. Se cacher peut fonctionner si les poursuivants ne sont pas déterminés. Faire face est héroïque mais potentiellement fatal.'
+        },
         choices:[
             {text:'Se cacher',target:'anatomy_escape',effects:{prudence:10}},
             {text:'Fuir',target:'night_escape',effects:{prudence:5}},
@@ -263,6 +308,11 @@ const SCENES = {
     rucellai_dinner: {
         location:'Palazzo Rucellai',title:'Dîner des Opposants',icon:'🍽️',cards:['machiavel'],
         text:'<p class="scene-text"><span class="term">Niccolò Machiavelli<span class="tooltip">Futur auteur du Prince.</span></span> est présent. « Savonarole tombera. Qui le remplacera ? »</p>',
+        learnMore: {
+            title:'Les Orti Oricellari',
+            content:'<p>Les jardins Rucellai (Orti Oricellari) sont un lieu de rencontre pour les opposants à Savonarole et, plus tard, un cercle de réflexion politique. C\'est ici que le jeune Machiavel forgera certaines de ses idées.</p><p>Les participants — marchands, humanistes, nobles — rêvent d\'une Florence républicaine mais gouvernée par les « meilleurs », pas par un moine fanatique.</p><p>Machiavel (1469-1527) deviendra le théoricien du pouvoir. Son <em>Prince</em> analysera comment conquérir et garder le pouvoir — sans illusions morales.</p>',
+            hint:'Ces hommes ont du pouvoir et de l\'ambition. Les rejoindre, c\'est entrer dans le jeu politique. Observer permet d\'apprendre sans s\'engager.'
+        },
         choices:[
             {text:'Rejoindre le complot',target:'conspiracy',effects:{princes:20,clergy:-20}},
             {text:'Parler avec Machiavelli',target:'machiavelli_talk',effects:{humanism:15}},
@@ -346,6 +396,11 @@ const SCENES = {
     leonardo_path: {
         location:'Atelier de Léonard',title:'Le Chemin',icon:'📚',
         text:'<p class="scene-text">Les mois passent auprès de Léonard. Il annonce son départ pour Milan. « Viens avec moi. Ou reste défendre l\'humanisme. »</p>',
+        learnMore: {
+            title:'Léonard quitte Florence',
+            content:'<p>Léonard a un rapport compliqué avec Florence. Né à Vinci, formé chez Verrocchio, il n\'a jamais eu la reconnaissance qu\'il méritait dans sa ville. Les commandes vont à d\'autres.</p><p>En 1482, il part pour Milan servir Ludovic Sforza. Il y restera 17 ans, créant la Cène, des machines de guerre, des études anatomiques révolutionnaires.</p><p>Suivre Léonard, c\'est choisir l\'exil mais aussi la liberté intellectuelle. Rester à Florence, c\'est défendre l\'humanisme sur place — mais dans une ville de plus en plus hostile aux idées nouvelles.</p>',
+            hint:'Milan offre la protection d\'un prince éclairé. Florence reste le cœur de la Renaissance mais traverse une crise. Voyager seul, c\'est répandre le savoir mais perdre un mentor.'
+        },
         choices:[
             {text:'Suivre à Milan',target:'milan_ending',effects:{humanism:20}},
             {text:'Rester à Florence',target:'florence_defender',effects:{humanism:15,prudence:-10}},
@@ -404,6 +459,11 @@ const SCENES = {
     inquisitor_path: {
         location:'San Marco',title:'Le Bras de Dieu',icon:'⚔️',
         text:'<p class="scene-text">Vous devenez l\'un des plus zélés. Mais vous entendez : Rome prépare la chute de Savonarole.</p>',
+        learnMore: {
+            title:'La chute annoncée',
+            content:'<p>En 1497, le pape Alexandre VI excommunie Savonarole. Le moine continue à prêcher, défiant Rome. Mais ses soutiens s\'effritent.</p><p>En avril 1498, Savonarole propose une « ordalie par le feu » pour prouver sa sainteté. Une pluie providentielle annule l\'épreuve. La foule, déçue, se retourne contre lui.</p><p>San Marco est pris d\'assaut. Savonarole est arrêté, torturé, et brûlé le 23 mai 1498 — sur la même place où il organisait les Bûchers des Vanités.</p>',
+            hint:'L\'histoire est en marche. Rester fidèle jusqu\'au bout mène à la catastrophe. Trahir sauve la peau mais souille l\'âme. Douter ouvre une autre voie.'
+        },
         choices:[
             {text:'Rester fidèle',target:'fanatic_ending',effects:{clergy:20,humanism:-20}},
             {text:'Commencer à douter',target:'doubt_growing',effects:{humanism:10,clergy:-10}},
